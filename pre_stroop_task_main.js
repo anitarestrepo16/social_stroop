@@ -18,7 +18,7 @@ timeline.push(instructions_block);
 var words = [
     /* Social Positive*/
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
-     color: rgb(232, 0, 0);'><strong>INCLUDED</strong></p>`, correct_response: 'r', word: 'alone', color: 'red', category: 'social_pos'},
+     color: rgb(232, 0, 0);'><strong>INCLUDED</strong></p>`, correct_response: 'r', word: 'included', color: 'red', category: 'social_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
      color: rgb(23, 5, 250);'><strong>BELONG</strong></p>`, correct_response: 'b', word: 'belong', color: 'blue', category: 'social_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
@@ -54,13 +54,13 @@ var words = [
     color: rgb(0, 125, 0);'><strong>DELIGHT</strong></p>`, correct_response: 'g', word: 'delight', color: 'green', category: 'emotion_pos'},
     /* Normal Stroop*/
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
-    color: rgb(232, 0, 0);'><strong>GREEN</strong></p>`, correct_response: 'r', word: 'lucky', color: 'red', category: 'emotion_pos'},
+    color: rgb(232, 0, 0);'><strong>GREEN</strong></p>`, correct_response: 'r', word: 'green', color: 'red', category: 'emotion_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
-    color: rgb(23, 5, 250);'><strong>YELLOW</strong></p>`, correct_response: 'b', word: 'laugh', color: 'blue', category: 'emotion_pos'},
+    color: rgb(23, 5, 250);'><strong>YELLOW</strong></p>`, correct_response: 'b', word: 'yellow', color: 'blue', category: 'emotion_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
-    color: rgb(255, 255, 0);'><strong>BLUE</strong></p>`, correct_response: 'y', word: 'hope', color: 'yellow', category: 'emotion_pos'},
+    color: rgb(255, 255, 0);'><strong>BLUE</strong></p>`, correct_response: 'y', word: 'blue', color: 'yellow', category: 'emotion_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
-    color: rgb(0, 125, 0);'><strong>RED</strong></p>`, correct_response: 'g', word: 'delight', color: 'green', category: 'emotion_pos'}
+    color: rgb(0, 125, 0);'><strong>RED</strong></p>`, correct_response: 'g', word: 'red', color: 'green', category: 'emotion_pos'}
 ];
 
 /* create the fixation cross in white */
