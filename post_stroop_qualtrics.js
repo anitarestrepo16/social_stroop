@@ -16,7 +16,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
     var requiredResources = [
         task_github + "jspsych.js",
         task_github + "plugins/jspsych-html-keyboard-response.js",
-        task_github + "stroop_task_main.js"
+        task_github + "post_stroop_task_main.js"
     ];
 
     function loadScript(idx) {
@@ -58,8 +58,8 @@ Qualtrics.SurveyEngine.addOnload(function () {
                 var rt = Math.round(correct_trials.select('rt').mean());
 
                 // save to qualtrics embedded data
-                Qualtrics.SurveyEngine.setEmbeddedData("accuracy", accuracy);
-                Qualtrics.SurveyEngine.setEmbeddedData("rt", rt);
+                Qualtrics.SurveyEngine.setEmbeddedData("post_accuracy", accuracy);
+                Qualtrics.SurveyEngine.setEmbeddedData("post_rt", rt);
 
                 /* Change 6: Adding the clean up and continue functions.*/
                 // clear the stage
