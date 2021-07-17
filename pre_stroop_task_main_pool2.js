@@ -45,6 +45,7 @@ var practice_words = [
 
 /* create a practice variable that specifies the aspects of the practice trials (what to click, how long it lasts) and save the relevant trial-level data */
 var practice = {
+    data: jsPsych.timelineVariable("data")
     type: "html-keyboard-response",
     stimulus: jsPsych.timelineVariable('stimulus'),
     choices: ['r', 'b', 'g', 'y'], /* only valid keyboard presses are r, b, g or y */
@@ -58,24 +59,19 @@ var practice = {
         category: jsPsych.timelineVariable('category')
     },
     on_finish: function(data) {
-        if (data.key_press == data.correct_response) {
-            data.accuracy = 1
-        } else {
-            data.accuracy = 0
+        data.accuracy = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response)
         }
-    }
-
 }
 
 var feedback = {
     on_start: function(trial) {
         var last_trial_accuracy = jsPsych.data.get().last(1).values()[0].accuracy;
         if (last_trial_accuracy == 1) {
-            var fdbck = "Correct"; // give a variable for feedback
+            var fdbck = "CORRECT"; // give a variable for feedback
         } else {
-            var fdbck = "Wrong";// give a variable for feedback
+            var fdbck = "WRONG";// give a variable for feedback
         }
-        var fdbck_trial_stim = "<div style='font-size: 60px; color: white;'><b>" + fdbck + "</b></div>";
+        var fdbck_trial_stim = "<div style='font-family: Arial, Helvetica, sans-serif; font-size: 60px; color: white;'><b>" + fdbck + "</b></div>";
         trial.data = {task: "feedback", stimulus: fdbck};
         trial.stimulus = fdbck_trial_stim;
     },
@@ -93,6 +89,14 @@ var practice_procedure = {
 
 /* add the actual full procedure to the timeline after the instructions */
 timeline.push(practice_procedure);
+
+var end_practice = {
+    type: "html-keyboard-response",
+    stimulus: `<p style= 'color: white;'> This is the end of the practice. Press any key to continue. </p>`,
+    post_trial_gap: 750
+}
+
+timeline.push(end_practice);
 
 /* create array of words for the stroop with relevant variables to save tagged on */
 /* Pool 1 */
