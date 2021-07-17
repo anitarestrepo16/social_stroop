@@ -39,7 +39,7 @@ var practice_words = [
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
      color: rgb(23, 5, 250);'><strong>PENCIL</strong></p>`, correct_response: 'b', word: 'pencil', color: 'blue', category: 'social_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
-     color: rgb(255, 255, 0);'><strong>YELLOW</strong></p>`, correct_response: 'g', word: 'yellow', color: 'green', category: 'social_pos'}
+     color: rgb(0, 125, 0);'><strong>YELLOW</strong></p>`, correct_response: 'g', word: 'yellow', color: 'green', category: 'social_pos'}
 ];
 
 
@@ -217,7 +217,7 @@ var words_pool2 = [
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
      color: rgb(255, 255, 0);'><strong>FRIENDLY</strong></p>`, correct_response: 'y', word: 'friendly', color: 'yellow', category: 'social_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
-     color: rgb(23, 5, 250);'><strong>LIKED</strong></p>`, correct_response: 'r', word: 'liked', color: 'red', category: 'social_pos'},
+     color: rgb(232, 0, 0);'><strong>LIKED</strong></p>`, correct_response: 'r', word: 'liked', color: 'red', category: 'social_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
      color: rgb(23, 5, 250);'><strong>LOYAL</strong></p>`, correct_response: 'b', word: 'loyal', color: 'blue', category: 'social_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
@@ -234,7 +234,7 @@ var words_pool2 = [
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 0);'><strong>INFERIOR</strong></p>`, correct_response: 'y', word: 'inferior', color: 'yellow', category: 'social_neg'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
-    color: rgb(255, 255, 0);'><strong>HUMILIATED</strong></p>`, correct_response: 'r', word: 'humiliated', color: 'red', category: 'social_neg'},
+    color: rgb(232, 0, 0);'><strong>HUMILIATED</strong></p>`, correct_response: 'r', word: 'humiliated', color: 'red', category: 'social_neg'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
     color: rgb(23, 5, 250);'><strong>PATHETIC</strong></p>`, correct_response: 'b', word: 'pathetic', color: 'blue', category: 'social_neg'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
@@ -251,7 +251,7 @@ var words_pool2 = [
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 0);'><strong>PAIN</strong></p>`, correct_response: 'y', word: 'pain', color: 'yellow', category: 'emotion_neg'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
-    color: rgb(23, 5, 250);'><strong>ANGRY</strong></p>`, correct_response: 'r', word: 'angry', color: 'red', category: 'emotion_neg'},
+    color: rgb(232, 0, 0);'><strong>ANGRY</strong></p>`, correct_response: 'r', word: 'angry', color: 'red', category: 'emotion_neg'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
     color: rgb(23, 5, 250);'><strong>ANXIOUS</strong></p>`, correct_response: 'b', word: 'anxious', color: 'blue', category: 'emotion_neg'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
@@ -260,7 +260,7 @@ var words_pool2 = [
     color: rgb(255, 255, 0);'><strong>MISERY</strong></p>`, correct_response: 'y', word: 'misery', color: 'yellow', category: 'emotion_neg'},
     /* Emotion Positive*/
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
-    color: rgb(0, 125, 0);'><strong>CHEER</strong></p>`, correct_response: 'r', word: 'cheer', color: 'red', category: 'emotion_pos'},
+    color: rgb(232, 0, 0);'><strong>CHEER</strong></p>`, correct_response: 'r', word: 'cheer', color: 'red', category: 'emotion_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
     color: rgb(23, 5, 250);'><strong>COMFORT</strong></p>`, correct_response: 'b', word: 'comfort', color: 'blue', category: 'emotion_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
@@ -268,7 +268,7 @@ var words_pool2 = [
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 0);'><strong>HOPE</strong></p>`, correct_response: 'y', word: 'hope', color: 'yellow', category: 'emotion_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
-    color: rgb(0, 125, 0);'><strong>LUCKY</strong></p>`, correct_response: 'r', word: 'lucky', color: 'red', category: 'emotion_pos'},
+    color: rgb(232, 0, 0);'><strong>LUCKY</strong></p>`, correct_response: 'r', word: 'lucky', color: 'red', category: 'emotion_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
     color: rgb(23, 5, 250);'><strong>PLEASURE</strong></p>`, correct_response: 'b', word: 'pleasure', color: 'blue', category: 'emotion_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
@@ -291,7 +291,7 @@ var words_pool2 = [
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
     color: rgb(23, 5, 250);'><strong>BLUE</strong></p>`, correct_response: 'b', word: 'blue', color: 'blue', category: 'emotion_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
-    color: rgb(0, 125, 0);'><strong>RED</strong></p>`, correct_response: 'r', word: 'red', color: 'red', category: 'emotion_pos'},
+    color: rgb(232, 0, 0);'><strong>RED</strong></p>`, correct_response: 'r', word: 'red', color: 'red', category: 'emotion_pos'},
     /* Neutral */
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
     color: rgb(232, 0, 0);'><strong>PAPER</strong></p>`, correct_response: 'r', word: 'paper', color: 'red', category: 'emotion_neg'},
@@ -302,7 +302,7 @@ var words_pool2 = [
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 0);'><strong>CABINET</strong></p>`, correct_response: 'y', word: 'cabinet', color: 'yellow', category: 'emotion_neg'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
-    color: rgb(23, 5, 250);'><strong>FOOT</strong></p>`, correct_response: 'r', word: 'foot', color: 'red', category: 'emotion_neg'},
+    color: rgb(232, 0, 0);'><strong>FOOT</strong></p>`, correct_response: 'r', word: 'foot', color: 'red', category: 'emotion_neg'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
     color: rgb(23, 5, 250);'><strong>LOCKER</strong></p>`, correct_response: 'b', word: 'locker', color: 'blue', category: 'emotion_neg'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
