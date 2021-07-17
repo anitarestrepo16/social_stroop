@@ -14,6 +14,86 @@ var instructions_block = {
 /* add instructions to timeline variable */
 timeline.push(instructions_block);
 
+/* create the fixation cross in white */
+var fixation = {
+    type: 'html-keyboard-response',
+    stimulus: '<div style="font-size:60px; color: white;">+</div>',
+    choices: jsPsych.NO_KEYS,
+    trial_duration: 750,
+    task: "fixation"
+}
+
+/* add practice block */
+/* create array of practice words */
+var practice_words = [
+    { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
+     color: rgb(232, 0, 0);'><strong>HAIRPIN</strong></p>`, correct_response: 'r', word: 'hairpin', color: 'red', category: 'social_pos'},
+    { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
+     color: rgb(232, 0, 0);'><strong>RED</strong></p>`, correct_response: 'b', word: 'red', color: 'blue', category: 'social_pos'},
+    { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
+     color: rgb(23, 5, 250);'><strong>GREEN</strong></p>`, correct_response: 'y', word: 'green', color: 'yellow', category: 'social_pos'},
+    { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
+     color: rgb(23, 5, 250);'><strong>ITEM</strong></p>`, correct_response: 'g', word: 'item', color: 'green', category: 'social_pos'},
+    { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
+     color: rgb(23, 5, 250);'><strong>BLUE</strong></p>`, correct_response: 'r', word: 'blue', color: 'red', category: 'social_pos'},
+    { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
+     color: rgb(23, 5, 250);'><strong>PENCIL</strong></p>`, correct_response: 'b', word: 'pencil', color: 'blue', category: 'social_pos'},
+    { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
+     color: rgb(23, 5, 250);'><strong>YELLOW</strong></p>`, correct_response: 'g', word: 'yellow', color: 'green', category: 'social_pos'},
+];
+
+
+/* create a practice variable that specifies the aspects of the practice trials (what to click, how long it lasts) and save the relevant trial-level data */
+var practice = {
+    type: "html-keyboard-response",
+    stimulus: jsPsych.timelineVariable('stimulus'),
+    choices: ['r', 'b', 'g', 'y'], /* only valid keyboard presses are r, b, g or y */
+    trial_duration: 5000, /* if nothing is pressed, move on to next after 5000ms */
+    /* record the relevant variables that each item of the "practice_words" array is tagged with */
+    data: {
+        task: 'response', /* label the word trials as response trials to differentiate from fixation trials */ 
+        correct_response: jsPsych.timelineVariable('correct_response'),
+        word: jsPsych.timelineVariable('word'),
+        color: jsPsych.timelineVariable('color'),
+        category: jsPsych.timelineVariable('category')
+    },
+    on_finish: function(data) {
+        if (data.key_press == data.correct_response) {
+            data.accuracy = 1
+        } else {
+            data.accuracy = 0
+        }
+    }
+
+}
+
+var feedback = {
+    on_start: function(trial) {
+        var last_trial_accuracy = jsPsych.data.get().last(1).values()[0].accuracy;
+        if (last_trial_accuracy == 1) {
+            var fdbck = "Correct"; // give a variable for feedback
+        } else {
+            var fdbck = "Wrong";// give a variable for feedback
+        }
+        var fdbck_trial_stim = "<div style='font-size: 60px; color: white;'><b>" + fdbck + "</b></div>";
+        trial.data = {task: "feedback", stimulus: fdbck};
+        trial.stimulus = fdbck_trial_stim;
+    },
+    data: "",
+    type: "html-keyboard-response",
+    stimulus: "",
+    choices: jsPsych.NO_KEYS,
+    trial_duration: 500
+};
+
+var practice_procedure = {
+    timeline: [fixation, practice, feedback], /* intersperse fixation, practice word, feedback */
+    timeline_variables: jsPsych.randomization.shuffle(practice_words) /* randomize the order of appearance of words */
+};
+
+/* add the actual full procedure to the timeline after the instructions */
+timeline.push(practice_procedure);
+
 /* create array of words for the stroop with relevant variables to save tagged on */
 /* Pool 1 */
 var words_pool1 = [
@@ -227,14 +307,7 @@ var words_pool2 = [
     color: rgb(23, 5, 250);'><strong>TAXI</strong></p>`, correct_response: 'y', word: 'taxi', color: 'yellow', category: 'emotion_neg'}
 ];
 
-/* create the fixation cross in white */
-var fixation = {
-    type: 'html-keyboard-response',
-    stimulus: '<div style="font-size:60px; color: white;">+</div>',
-    choices: jsPsych.NO_KEYS,
-    trial_duration: 750,
-    task: "fixation"
-}
+
 
 /* create a test variable that specifies the aspects of the word trials (what to click, how long it lasts) and save the relevant trial-level data */
 var test = {
