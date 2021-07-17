@@ -45,7 +45,7 @@ var practice_words = [
 
 /* create a practice variable that specifies the aspects of the practice trials (what to click, how long it lasts) and save the relevant trial-level data */
 var practice = {
-    data: jsPsych.timelineVariable("data")
+    data: jsPsych.timelineVariable("data"),
     type: "html-keyboard-response",
     stimulus: jsPsych.timelineVariable('stimulus'),
     choices: ['r', 'b', 'g', 'y'], /* only valid keyboard presses are r, b, g or y */
