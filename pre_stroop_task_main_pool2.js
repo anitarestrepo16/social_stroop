@@ -39,7 +39,7 @@ var practice_words = [
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
      color: rgb(23, 5, 250);'><strong>PENCIL</strong></p>`, correct_response: 'b', word: 'pencil', color: 'blue', category: 'social_pos'},
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
-     color: rgb(255, 255, 0);'><strong>YELLOW</strong></p>`, correct_response: 'g', word: 'yellow', color: 'green', category: 'social_pos'},
+     color: rgb(255, 255, 0);'><strong>YELLOW</strong></p>`, correct_response: 'g', word: 'yellow', color: 'green', category: 'social_pos'}
 ];
 
 
@@ -92,7 +92,7 @@ timeline.push(practice_procedure);
 
 var end_practice = {
     type: "html-keyboard-response",
-    stimulus: `<p style= 'color: white;'> This is the end of the practice. Press any key to continue. </p>`,
+    stimulus: `<p style= 'color: white;'> You have completed the practice trials. Press any key to continue. </p>`,
     post_trial_gap: 750
 }
 
