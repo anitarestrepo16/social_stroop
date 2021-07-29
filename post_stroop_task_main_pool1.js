@@ -360,10 +360,15 @@ var test = {
     }
 }
 
-var test_procedure = {
+var soc_neg_procedure = {
     timeline: [fixation, test], /* intersperse word and fixation trials */
-    timeline_variables: merged /* randomize the order of appearance of words */
+    timeline_variables: pool1_soc_neg /* randomize the order of appearance of words */
+}
+var soc_pos_procedure = {
+    timeline: [fixation, test], /* intersperse word and fixation trials */
+    timeline_variables: pool1_soc_pos /* randomize the order of appearance of words */
 }
 
 /* add the actual full procedure to the timeline after the instructions */
-timeline.push(test_procedure);
+var full_procedure = [soc_neg_procedure, soc_pos_procedure]
+timeline.push(full_procedure);
