@@ -106,7 +106,7 @@ timeline.push(end_practice);
 /* create trial with questions from Pittsburgh Sleep Quality Index */
 var sleep = {
     type: "html-keyboard-response",
-    stimulus: '<p> Placeholder for sleep. </p>',
+    stimulus: `<p style = 'color: white;'> Placeholder for sleep. </p>`,
     post_trial_gap: 750
 }
 
@@ -343,13 +343,7 @@ var pool2_neutral = [
     color: rgb(255, 255, 0);'><strong>TAXI</strong></p>`, correct_response: 'y', word: 'taxi', color: 'yellow', category: 'emotion_neg'}
 ];
 
-/* attempt to get the blocks randomized */
-/* create an array of arrays to get all the blocks into one array */
-var pool1_words = [pool1_soc_neg, pool1_soc_pos, pool1_color, pool1_emo_neg, pool1_emo_pos, pool1_neutral]
-/* shuffle the order of the blocks */
-var random_order = jsPsych.randomization.shuffle(pool1_words);
-/* flatten the random_order array so get down to the level of the actual words and not the level of the blocks */
-var merged = [].concat.apply([], random_order);
+
 
 /* create a variable that specifies the aspects of the word trials (what to click, how long it lasts) and save the relevant trial-level data. This doesn't yet
 have actual stimuli pulled into it, it's just the mechanics of the trials */
@@ -377,12 +371,27 @@ var soc_pos_procedure = {
     timeline: [fixation, test], /* intersperse word and fixation trials */
     timeline_variables: pool1_soc_pos /* randomize the order of appearance of words */
 }
-var real_trials = {
-    timeline: [soc_pos_procedure, sleep, soc_neg_procedure]
+var emo_pos_procedure = {
+    timeline: [fixation, test], /* intersperse word and fixation trials */
+    timeline_variables: pool1_emo_pos /* randomize the order of appearance of words */
+}
+var emo_neg_procedure = {
+    timeline: [fixation, test], /* intersperse word and fixation trials */
+    timeline_variables: pool1_emo_neg /* randomize the order of appearance of words */
 }
 
+
+/* attempt to get the blocks randomized */
+/* create an array of arrays to get all the blocks into one array */
+var blocks = [soc_neg_procedure, soc_pos_procedure, emo_neg_procedure, emo_pos_procedure]
+/* shuffle the order of the blocks */
+var random_order = jsPsych.randomization.shuffle(blocks);
+/* flatten the random_order array so get down to the level of the actual words and not the level of the blocks */
+var merged = [].concat.apply([], random_order);
+var real_trials = {
+    timeline: [random_order[0], sleep, random_order[1], sleep, random_order[2], sleep, random_order[3]]
+}
 /* add the actual full procedure to the timeline after the instructions */
-var full_procedure = [].concat(soc_neg_procedure, soc_pos_procedure)
 timeline.push(real_trials);
 
 console.log(real_trials)
