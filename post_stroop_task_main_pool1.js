@@ -356,7 +356,7 @@ var test = {
 
 var test_procedure = {
     timeline: [fixation, test], /* intersperse word and fixation trials */
-    timeline_variables: random_order /* randomize the order of appearance of words */
+    timeline_variables: random_order[0] /* randomize the order of appearance of words */
 }
 
 /* add the actual full procedure to the timeline after the instructions */
