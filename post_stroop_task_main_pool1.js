@@ -370,5 +370,7 @@ var soc_pos_procedure = {
 }
 
 /* add the actual full procedure to the timeline after the instructions */
-var full_procedure = [soc_neg_procedure, soc_pos_procedure]
+var full_procedure = [].concat(soc_neg_procedure, soc_pos_procedure)
 timeline.push(full_procedure);
+
+console.log(full_procedure)
