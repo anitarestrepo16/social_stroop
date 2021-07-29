@@ -330,7 +330,7 @@ var pool2_neutral = [
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 0);'><strong>TAXI</strong></p>`, correct_response: 'y', word: 'taxi', color: 'yellow', category: 'emotion_neg'}
 ];
-
+var pool1_words = [pool1_soc_neg, pool1_soc_pos, pool1_color, pool1_emo_neg, pool1_emo_pos, pool1_neutral]
 
 /* create a test variable that specifies the aspects of the word trials (what to click, how long it lasts) and save the relevant trial-level data */
 var test = {
@@ -350,7 +350,7 @@ var test = {
 
 var test_procedure = {
     timeline: [fixation, test], /* intersperse word and fixation trials */
-    timeline_variables: jsPsych.randomization.shuffle([pool1_soc_pos, pool1_soc_neg]) /* randomize the order of appearance of words */
+    timeline_variables: jsPsych.randomization.shuffle(pool1_words) /* randomize the order of appearance of words */
 }
 
 /* add the actual full procedure to the timeline after the instructions */
