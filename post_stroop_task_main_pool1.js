@@ -350,7 +350,7 @@ var test = {
 
 var test_procedure = {
     timeline: [fixation, test], /* intersperse word and fixation trials */
-    timeline_variables: jsPsych.randomization.shuffle(pool1_soc_pos, pool1_soc_neg) /* randomize the order of appearance of words */
+    timeline_variables: jsPsych.randomization.shuffle([pool1_soc_pos, pool1_soc_neg]) /* randomize the order of appearance of words */
 }
 
 /* add the actual full procedure to the timeline after the instructions */
