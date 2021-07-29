@@ -335,9 +335,13 @@ var pool2_neutral = [
     { stimulus: `<p style='font-size: 37.333px; font-family: Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 0);'><strong>TAXI</strong></p>`, correct_response: 'y', word: 'taxi', color: 'yellow', category: 'emotion_neg'}
 ];
+
+/* attempt to get the blocks randomized */
+/* create an array of arrays to get all the blocks into one array */
 var pool1_words = [pool1_soc_neg, pool1_soc_pos, pool1_color, pool1_emo_neg, pool1_emo_pos, pool1_neutral]
+/* shuffle the order of the blocks */
 var random_order = jsPsych.randomization.shuffle(pool1_words);
-var blegh = [random_order[0], random_order[1], random_order[2], random_order[3], random_order[4], random_order[5], random_order[6]]
+/* flatten the random_order array so get down to the level of the actual words and not the level of the blocks */
 var merged = [].concat.apply([], random_order);
 
 /* create a test variable that specifies the aspects of the word trials (what to click, how long it lasts) and save the relevant trial-level data */
@@ -363,10 +367,3 @@ var test_procedure = {
 
 /* add the actual full procedure to the timeline after the instructions */
 timeline.push(test_procedure);
-
-console.log(pool1_words)
-console.log(random_order)
-console.log(blegh)
-console.log(blegh[0])
-console.log(blegh[0][0])
-console.log(merged)
