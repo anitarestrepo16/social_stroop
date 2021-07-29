@@ -336,7 +336,7 @@ var pool2_neutral = [
     color: rgb(255, 255, 0);'><strong>TAXI</strong></p>`, correct_response: 'y', word: 'taxi', color: 'yellow', category: 'emotion_neg'}
 ];
 var pool1_words = [pool1_soc_neg, pool1_soc_pos, pool1_color, pool1_emo_neg, pool1_emo_pos, pool1_neutral]
-var random_order = jsPsych.randomization.repeat(pool1_words, 1, true);
+var random_order = jsPsych.randomization.shuffle(pool1_words);
 
 /* create a test variable that specifies the aspects of the word trials (what to click, how long it lasts) and save the relevant trial-level data */
 var test = {
@@ -363,3 +363,4 @@ var test_procedure = {
 timeline.push(test_procedure);
 
 console.log(pool1_words)
+console.log(random_order)
