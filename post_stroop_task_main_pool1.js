@@ -361,3 +361,5 @@ var test_procedure = {
 
 /* add the actual full procedure to the timeline after the instructions */
 timeline.push(test_procedure);
+
+console.log(pool1_words)
