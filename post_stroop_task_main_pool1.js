@@ -22,6 +22,11 @@ var fixation = {
     trial_duration: 750,
     task: "fixation"
 }
+/* add spatial uncertainty so each word is presented at random location slightly off (50px) the center of the screen */
+var random_duration = function() {
+    var rand_dur = jsPsych.randomization.sampleWithoutReplacement([500,600,700,800],1)[0];
+    return rand_dur;
+}
 
 /* add practice block */
 /* create array of practice words */
@@ -88,7 +93,7 @@ var practice_procedure = {
 };
 
 /* add the actual full procedure to the timeline after the instructions */
-timeline.push(practice_procedure);
+/*timeline.push(practice_procedure);*/
 
 var end_practice = {
     type: "html-keyboard-response",
@@ -331,6 +336,7 @@ var pool2_neutral = [
     color: rgb(255, 255, 0);'><strong>TAXI</strong></p>`, correct_response: 'y', word: 'taxi', color: 'yellow', category: 'emotion_neg'}
 ];
 var pool1_words = [pool1_soc_neg, pool1_soc_pos, pool1_color, pool1_emo_neg, pool1_emo_pos, pool1_neutral]
+var random_order = jsPsych.randomization.repeat(pool1_words, 1, true);
 
 /* create a test variable that specifies the aspects of the word trials (what to click, how long it lasts) and save the relevant trial-level data */
 var test = {
@@ -350,7 +356,7 @@ var test = {
 
 var test_procedure = {
     timeline: [fixation, test], /* intersperse word and fixation trials */
-    timeline_variables: jsPsych.randomization.shuffle(pool1_words) /* randomize the order of appearance of words */
+    timeline_variables: random_order /* randomize the order of appearance of words */
 }
 
 /* add the actual full procedure to the timeline after the instructions */
