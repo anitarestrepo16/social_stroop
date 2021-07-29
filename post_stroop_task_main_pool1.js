@@ -338,6 +338,7 @@ var pool2_neutral = [
 var pool1_words = [pool1_soc_neg, pool1_soc_pos, pool1_color, pool1_emo_neg, pool1_emo_pos, pool1_neutral]
 var random_order = jsPsych.randomization.shuffle(pool1_words);
 var blegh = [random_order[0], random_order[1], random_order[2], random_order[3], random_order[4], random_order[5], random_order[6]]
+var merged = [].concat.apply([], random_order);
 
 /* create a test variable that specifies the aspects of the word trials (what to click, how long it lasts) and save the relevant trial-level data */
 var test = {
@@ -357,7 +358,7 @@ var test = {
 
 var test_procedure = {
     timeline: [fixation, test], /* intersperse word and fixation trials */
-    timeline_variables: blegh /* randomize the order of appearance of words */
+    timeline_variables: merged /* randomize the order of appearance of words */
 }
 
 /* add the actual full procedure to the timeline after the instructions */
@@ -367,3 +368,5 @@ console.log(pool1_words)
 console.log(random_order)
 console.log(blegh)
 console.log(blegh[0])
+console.log(blegh[0][0])
+console.log(merged)
