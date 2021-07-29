@@ -103,6 +103,13 @@ var end_practice = {
 
 timeline.push(end_practice);
 
+/* create trial with questions from Pittsburgh Sleep Quality Index */
+var sleep = {
+    type: "html-keyboard-response",
+    stimulus: '<p> Placeholder for sleep. </p>',
+    post_trial_gap: 750
+}
+
 /* create array of words for the stroop with relevant variables to save tagged on */
 /* Pool 1 */
 var pool1_soc_pos = [
@@ -344,7 +351,8 @@ var random_order = jsPsych.randomization.shuffle(pool1_words);
 /* flatten the random_order array so get down to the level of the actual words and not the level of the blocks */
 var merged = [].concat.apply([], random_order);
 
-/* create a test variable that specifies the aspects of the word trials (what to click, how long it lasts) and save the relevant trial-level data */
+/* create a variable that specifies the aspects of the word trials (what to click, how long it lasts) and save the relevant trial-level data. This doesn't yet
+have actual stimuli pulled into it, it's just the mechanics of the trials */
 var test = {
     type: "html-keyboard-response",
     stimulus: jsPsych.timelineVariable('stimulus'),
@@ -359,7 +367,8 @@ var test = {
         category: jsPsych.timelineVariable('category')
     }
 }
-
+/* this creates a nested timeline where the individual items from the array of words (timeline_variables) are iterated with the fixation cross and all of that
+becomes itself a block on the larger timeline */
 var soc_neg_procedure = {
     timeline: [fixation, test], /* intersperse word and fixation trials */
     timeline_variables: pool1_soc_neg /* randomize the order of appearance of words */
@@ -368,9 +377,13 @@ var soc_pos_procedure = {
     timeline: [fixation, test], /* intersperse word and fixation trials */
     timeline_variables: pool1_soc_pos /* randomize the order of appearance of words */
 }
+var real_trials = {
+    timeline: [soc_pos_procedure, sleep, soc_neg_procedure]
+}
 
 /* add the actual full procedure to the timeline after the instructions */
 var full_procedure = [].concat(soc_neg_procedure, soc_pos_procedure)
-timeline.push(full_procedure);
+timeline.push(real_trials);
 
-console.log(full_procedure)
+console.log(real_trials)
+console.log(timeline)
