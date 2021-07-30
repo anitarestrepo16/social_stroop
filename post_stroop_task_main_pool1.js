@@ -107,7 +107,7 @@ timeline.push(end_practice);
 var sleep = {
     type: "html-keyboard-response",
     stimulus: `<p style = 'color: white;'> Placeholder for sleep. </p>`,
-    post_trial_gap: 750
+    trial_duration: 60000
 }
 
 /* create array of words for the stroop with relevant variables to save tagged on */
@@ -361,38 +361,46 @@ var test = {
         category: jsPsych.timelineVariable('category')
     }
 }
+
+
 /* this creates a nested timeline where the individual items from the array of words (timeline_variables) are iterated with the fixation cross and all of that
-becomes itself a block on the larger timeline */
+becomes itself a block on the larger timeline -- make one nested timeline for each of the blocks (each stroop category) */
 var soc_neg_procedure = {
     timeline: [fixation, test], /* intersperse word and fixation trials */
-    timeline_variables: pool1_soc_neg /* randomize the order of appearance of words */
+    timeline_variables: pool1_soc_neg /* can randomize the order of appearance of words within block if needed */
 }
 var soc_pos_procedure = {
     timeline: [fixation, test], /* intersperse word and fixation trials */
-    timeline_variables: pool1_soc_pos /* randomize the order of appearance of words */
+    timeline_variables: pool1_soc_pos /* can randomize the order of appearance of words within block if needed */
 }
 var emo_pos_procedure = {
     timeline: [fixation, test], /* intersperse word and fixation trials */
-    timeline_variables: pool1_emo_pos /* randomize the order of appearance of words */
+    timeline_variables: pool1_emo_pos /* can randomize the order of appearance of words within block if needed */
 }
 var emo_neg_procedure = {
     timeline: [fixation, test], /* intersperse word and fixation trials */
-    timeline_variables: pool1_emo_neg /* randomize the order of appearance of words */
+    timeline_variables: pool1_emo_neg /* can randomize the order of appearance of words within block if needed */
+}
+var color_procedure = {
+    timeline: [fixation, test], /* intersperse word and fixation trials */
+    timeline_variables: pool1_color /* can randomize the order of appearance of words within block if needed */
+}
+var neutral_procedure = {
+    timeline: [fixation, test], /* intersperse word and fixation trials */
+    timeline_variables: pool1_neutral /* can randomize the order of appearance of words within block if needed */
 }
 
 
 /* attempt to get the blocks randomized */
 /* create an array of arrays to get all the blocks into one array */
-var blocks = [soc_neg_procedure, soc_pos_procedure, emo_neg_procedure, emo_pos_procedure]
+var blocks = [soc_neg_procedure, soc_pos_procedure, emo_neg_procedure, emo_pos_procedure, color_procedure, neutral_procedure]
 /* shuffle the order of the blocks */
 var random_order = jsPsych.randomization.shuffle(blocks);
-/* flatten the random_order array so get down to the level of the actual words and not the level of the blocks */
-var merged = [].concat.apply([], random_order);
+
+
+/* create another level of nested timelines where we intersperse the blocks of words with the sleep questionnaire items */
 var real_trials = {
-    timeline: [random_order[0], sleep, random_order[1], sleep, random_order[2], sleep, random_order[3]]
+    timeline: [random_order[0], sleep, random_order[1], sleep, random_order[2], sleep, random_order[3], sleep, random_order[4], sleep, random_order[5]]
 }
 /* add the actual full procedure to the timeline after the instructions */
 timeline.push(real_trials);
-
-console.log(real_trials)
-console.log(timeline)
