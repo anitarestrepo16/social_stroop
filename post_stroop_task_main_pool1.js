@@ -402,5 +402,5 @@ var random_order = jsPsych.randomization.shuffle(blocks);
 var real_trials = {
     timeline: [random_order[0], sleep, random_order[1], sleep, random_order[2], sleep, random_order[3], sleep, random_order[4], sleep, random_order[5]]
 }
-/* add the actual full procedure to the timeline after the instructions */
+/* add the real trials with their nested timelines to the larger first-level timeline */
 timeline.push(real_trials);
