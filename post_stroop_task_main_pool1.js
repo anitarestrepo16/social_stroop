@@ -103,51 +103,89 @@ var end_practice = {
 
 timeline.push(end_practice);
 
-/* create trials with questions from Pittsburgh Sleep Quality Index */
-var sleep_test = {
-    type: "html-button-response",
-    stimulus: `<p style = 'color: white;'> During the past month, how would you rate your sleep quality overall? </p>`,
-    choices: ['Very good', 'Fairly good', 'Fairly bad', 'Very bad'],
-    on_finish
-}
+/* create trials with questions from Pittsburgh Sleep Quality Index - one item per variable */
 var sleep1 = {
-    type: "html-button-response",
-    stimulus: `<p style = 'color: white;'> During the past month, how would you rate your sleep quality overall? </p>`,
-    choices: ['Very good', 'Fairly good', 'Fairly bad', 'Very bad'],
-    trial_duration: 60000,
-    response_ends_trial: false
-}
-
-var sleep2 = {
-    type: "html-button-response",
-    stimulus: `<p style = 'color: white;'> During the past month, how often have you taken medicine (prescribed or "over the counter") to help you sleep? </p>`,
-    choices: ['Not during the past month', 'Less than once a week', 'Once or twice a week', 'Three or more times a week'],
-    trial_duration: 60000,
-    response_ends_trial: false
-}
-
-var sleep3 = {
-    type: "html-button-response",
-    stimulus: `<p style = 'color: white;'> During the past month, how often have you had trouble staying awake while driving, eating meals, or engaging in social activity? </p>`,
-    choices: ['Not during the past month', 'Less than once a week', 'Once or twice a week', 'Three or more times a week'],
-    trial_duration: 60000,
-    response_ends_trial: false
-}
-
-var sleep4 = {
-    type: "html-button-response",
-    stimulus: `<p style = 'color: white;'> During the past month, how much of a problem has it been for you to keep up enough enthusiasm to get things done? </p>`,
-    choices: ['No problem at all', 'Only a very slight problem', 'Somewhat of a problem', 'A very big problem'],
-    trial_duration: 60000,
-    response_ends_trial: false
-}
-
-var sleep5 = {
     type: "html-button-response",
     stimulus: `<p style = 'color: white;'> During the past month, how often have you had trouble sleeping because you cannot get to sleep within 30 minutes? </p>`,
     choices: ['Not during the past month', 'Less than once a week', 'Once or twice a week', 'Three or more times a week'],
     trial_duration: 60000,
-    response_ends_trial: false
+    data: {
+        task: "sleep1"
+    }
+}
+var sleep2 = {
+    type: "html-button-response",
+    stimulus: `<p style = 'color: white;'> During the past month, how often have you had trouble sleeping because you wake up in the middle of the night or early morning? </p>`,
+    choices: ['Not during the past month', 'Less than once a week', 'Once or twice a week', 'Three or more times a week']
+}
+var sleep3 = {
+    type: "html-button-response",
+    stimulus: `<p style = 'color: white;'> During the past month, how often have you had trouble sleeping because you have to get up to use the bathroom? </p>`,
+    choices: ['Not during the past month', 'Less than once a week', 'Once or twice a week', 'Three or more times a week']
+}
+var sleep4 = {
+    type: "html-button-response",
+    stimulus: `<p style = 'color: white;'> During the past month, how often have you had trouble sleeping because you cannot breathe comfortably? </p>`,
+    choices: ['Not during the past month', 'Less than once a week', 'Once or twice a week', 'Three or more times a week']
+}
+var sleep5 = {
+    type: "html-button-response",
+    stimulus: `<p style = 'color: white;'> During the past month, how often have you had trouble sleeping because you cough or snore loudly? </p>`,
+    choices: ['Not during the past month', 'Less than once a week', 'Once or twice a week', 'Three or more times a week']
+}
+var sleep6 = {
+    type: "html-button-response",
+    stimulus: `<p style = 'color: white;'> During the past month, how often have you had trouble sleeping because you feel too cold? </p>`,
+    choices: ['Not during the past month', 'Less than once a week', 'Once or twice a week', 'Three or more times a week']
+}
+var sleep7 = {
+    type: "html-button-response",
+    stimulus: `<p style = 'color: white;'> During the past month, how often have you had trouble sleeping because you feel too hot? </p>`,
+    choices: ['Not during the past month', 'Less than once a week', 'Once or twice a week', 'Three or more times a week']
+}
+var sleep8 = {
+    type: "html-button-response",
+    stimulus: `<p style = 'color: white;'> During the past month, how often have you had trouble sleeping because you had bad dreams? </p>`,
+    choices: ['Not during the past month', 'Less than once a week', 'Once or twice a week', 'Three or more times a week']
+}
+var sleep9 = {
+    type: "html-button-response",
+    stimulus: `<p style = 'color: white;'> During the past month, how often have you had trouble sleeping because you have pain? </p>`,
+    choices: ['Not during the past month', 'Less than once a week', 'Once or twice a week', 'Three or more times a week']
+}
+var sleep10 = {
+    type: "html-button-response",
+    stimulus: `<p style = 'color: white;'> During the past month, how would you rate your sleep quality overall? </p>`,
+    choices: ['Very good', 'Fairly good', 'Fairly bad', 'Very bad']
+}
+
+var sleep11 = {
+    type: "html-button-response",
+    stimulus: `<p style = 'color: white;'> During the past month, how often have you taken medicine (prescribed or "over the counter") to help you sleep? </p>`,
+    choices: ['Not during the past month', 'Less than once a week', 'Once or twice a week', 'Three or more times a week']
+}
+
+var sleep12 = {
+    type: "html-button-response",
+    stimulus: `<p style = 'color: white;'> During the past month, how often have you had trouble staying awake while driving, eating meals, or engaging in social activity? </p>`,
+    choices: ['Not during the past month', 'Less than once a week', 'Once or twice a week', 'Three or more times a week']
+}
+
+var sleep13 = {
+    type: "html-button-response",
+    stimulus: `<p style = 'color: white;'> During the past month, how much of a problem has it been for you to keep up enough enthusiasm to get things done? </p>`,
+    choices: ['No problem at all', 'Only a very slight problem', 'Somewhat of a problem', 'A very big problem']
+}
+
+var sleep_wait = {
+    type: "html-keyboard-response",
+    stimulus: `<p style = 'color: white;'> Please wait a couple seconds for the start of the next color word game. </p>`,
+    choices: jsPsych.NO_KEYS,
+    trial_duration: function(){
+        var last_trials_time_elapsed = jsPsych.data.get().last(4).values();
+        var duration = 60000 - (last_trials_time_elapsed[0].rt + last_trials_time_elapsed[1].rt + last_trials_time_elapsed[2].rt + last_trials_time_elapsed[3].rt);
+        return duration
+    }
 }
 
 /* create array of words for the stroop with relevant variables to save tagged on */
@@ -440,7 +478,7 @@ var random_order = jsPsych.randomization.shuffle(blocks);
 
 /* create another level of nested timelines where we intersperse the blocks of words with the sleep questionnaire items */
 var real_trials = {
-    timeline: [random_order[0], sleep1, random_order[1], sleep2, random_order[2], sleep3, random_order[3], sleep4, random_order[4], sleep5, random_order[5]]
+    timeline: [sleep1, sleep2, sleep3, sleep4, sleep_wait, random_order[1], sleep5, sleep6, sleep7, sleep8, sleep_wait, random_order[2], sleep9, sleep10, sleep11, sleep12, sleep_wait, random_order[3], random_order[4], random_order[5]]
 }
 /* add the real trials with their nested timelines to the larger first-level timeline */
 timeline.push(real_trials);
